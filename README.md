@@ -12,7 +12,7 @@
 ---
 #### Quick Start:
 1. Clone the repo.
-2. Install `uv`. Follow this [uv Documentation](https://docs.astral.sh/uv/getting-started/installation) (if you don't already have it)
+2. Install `uv`. Follow this `uv` [Installation Documentation](https://docs.astral.sh/uv/getting-started/installation) (if you don't already have it)
 3. Create a models/ folder in the project root (save your downloaded models there)
 4. Run:
 ```bash
