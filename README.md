@@ -1,5 +1,6 @@
 # Set up an AI Agent in PydanticAI Framework
 (This setup can also be used for running different Open-source, <u> Lightweight</u> LLM models locally, quickly)
+*(Tested and configured for Windows)*
 
 - Broadly speaking, an agent without tools is fundamentally just an LLM (/LLM wrapper)
 - A common distinction in the AI community is:
@@ -11,8 +12,9 @@
 ---
 #### Quick Start:
 1. Clone the repo.
-2. Install `uv` (if you don't already have it).
-2. Run:
+2. Install `uv`. Follow this [uv Documentation](https://docs.astral.sh/uv/getting-started/installation) (if you don't already have it)
+3. Create a models/ folder in the project root (save your downloaded models there)
+4. Run:
 ```bash
 uv sync
 ```
@@ -33,13 +35,12 @@ uv sync
 - This web server can be used to serve local models and easily connect them to existing clients.
 - Start server with whatever model you've downloaded by running this in a new terminal:
 ```Bash
-python -m llama_cpp.server --model <model_path>
+uv run python -m llama_cpp.server --model <model_path>
 ```
-- for example: python3 -m llama_cpp.server --model "/path/to/models/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-F16.gguf"
-- for example: `python -m llama_cpp.server --model C:\path\to\models\MiniCPM5-1B-Claude-Opus-Fable5-Thinking-F16.gguf`
+- for example: uv run python -m llama_cpp.server --model "/path/to/models/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-F16.gguf"
 (model's absolute path not a relative path)
 - Just replace model's path to try different models
-- Server will be available at: http://localhost:8000
+- The local model server will run at: http://localhost:8000
 - Documentation: https://llama-cpp-python.readthedocs.io/en/latest/server/
 
 ---
@@ -48,6 +49,7 @@ python -m llama_cpp.server --model <model_path>
 ```Bash
 uv run src\easy_agent_setup\main.py
 ```
+- Make sure the local server from the previous step is running
 
 ---
  #### Chat with your Model in Terminal:
@@ -56,14 +58,17 @@ uv run src\easy_agent_setup\main.py
 uv run src\easy_agent_setup\terminal.py
 ```
 - Documentation: https://pydantic.dev/docs/ai/integrations/cli
+- Make sure the local server from the previous step is running
 
 ---
 #### Chat with your Model in a Web Chat UI:
-- Run `web_ui.py` file
+- Run `web_ui.py` file:
 ```Bash
 uv run src\easy_agent_setup\web_ui.py
 ```
-- Run this in a new terminal:
+- `web_ui.py` creates the FastAPI app using `agent.to_web()`.
+- Make sure the local server from the previous step is running.
+- To serve this app in your browser, run `uvicorn` in a new terminal:
 ```Bash
 uv run uvicorn easy_agent_setup.web_ui:app --app-dir src --host 127.0.0.1 --port 7932
 ```
