@@ -1,5 +1,5 @@
 # Set up an AI Agent in PydanticAI Framework
-(This setup can also be used for running different Open-source, <u> Lightweight</u> LLM models locally, quickly)
+(This setup can also be used for running different Open-source, <u> Lightweight</u> LLM models locally, quickly)\
 *(Tested and configured for Windows)*
 
 - Broadly speaking, an agent without tools is fundamentally just an LLM (/LLM wrapper)
