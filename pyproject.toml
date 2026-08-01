@@ -1,0 +1,23 @@
+[project]
+name = "easy-agent-setup"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "AP-047", email = "ajaypatil047@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "llama-cpp-python[server]>=0.3.34",
+    "openai>=2.52.0",
+    "pydantic-ai>=2.22.0",
+    "pydantic-ai-slim[web]>=2.22.0",
+    "python-dotenv>=1.2.2",
+]
+
+[project.scripts]
+easy-agent-setup = "easy_agent_setup:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
