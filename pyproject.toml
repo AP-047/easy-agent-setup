@@ -10,8 +10,8 @@ requires-python = ">=3.12"
 dependencies = [
     "llama-cpp-python[server]>=0.3.34",
     "openai>=2.52.0",
-    "pydantic-ai>=2.22.0",
-    "pydantic-ai-slim[web]>=2.22.0",
+    "pydantic-ai>=2.59.0",
+    "pydantic-ai-slim[web]>=2.59.0",
     "python-dotenv>=1.2.2",
 ]
 
